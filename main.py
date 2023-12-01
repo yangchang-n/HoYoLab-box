@@ -16,7 +16,7 @@ def get_data_from_hoyolab(hoyo_uid, hoyo_token) :
     }
 
     requestData = requests.get(
-        url=f'https://bbs-api-os.hoyolab.com/game_record/card/wapi/getGameRecordCard?uid="{hoyo_uid}"',
+        url=f'https://bbs-api-os.hoyolab.com/game_record/card/wapi/getGameRecordCard?uid={hoyo_uid}',
         headers=headers
     )
 
