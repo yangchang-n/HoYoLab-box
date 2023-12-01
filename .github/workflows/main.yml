@@ -1,7 +1,7 @@
 name: Update gist
 on:
   schedule:
-    - cron: "* * * * *"
+    - cron: "0 * * * *"
 
 jobs:
   update-gist:
