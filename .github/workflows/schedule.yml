@@ -1,0 +1,27 @@
+name: Update gist
+on:
+  schedule:
+    - cron: "0 * * * *"
+  
+jobs:
+  update-gist:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@main
+
+      - name: "Setup Python"
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+
+      - name: "Pip install"
+        run: pip install -r requirements.txt
+
+      - name: "Update gist"
+        env:
+          HOYO_UID: ${{ secrets.HOYO_UID }}
+          HOYO_TOKEN: ${{ secrets.HOYO_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GIST_ID: 9a79919834da31aac651c6a00bffa874
+        run: python main.py
