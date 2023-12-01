@@ -51,8 +51,8 @@ def update_gist(gh_api_url, gh_token, gist_id, hoyo_data) :
         str_hoyo_data += temp
 
     data = {
-        'description' : 'HoYoverse game stats',
-        'content' : str_hoyo_data
+        'description' : '🎮 HoYoverse game stats',
+        'files' : {'Powered by HoYoLab-box' : {'content' : str_hoyo_data}}
     }
 
     request = requests.patch(
