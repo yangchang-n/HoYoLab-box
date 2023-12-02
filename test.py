@@ -27,7 +27,7 @@ if requestData.status_code == 200 :
             if 'Active' in eachData['name'] :
                 return_list[-1].append('🕹️ ' + eachData['value'].rjust(4, padding) + ' days ')
             elif 'Characters' in eachData['name'] :
-                return_list[-1].append('🤝 ' + eachData['value'].rjust(3, padding) + ' chars ')
+                return_list[-1].append('🤝 ' + eachData['value'].rjust(2, padding) + ' chars  ')
             elif 'Achievements' in eachData['name'] :
                 return_list[-1].append('🏆 ' + eachData['value'].rjust(4, padding) + ' achievements')
 
