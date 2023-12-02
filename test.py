@@ -13,30 +13,26 @@ requestData = requests.get(
     headers=headers
 )
 
+padding = ' '
 return_list = []
 if requestData.status_code == 200 :
     jsonData = requestData.json()
     for eachGame in jsonData['data']['list'] :
         if eachGame['game_id'] == 2 :
-            return_list.append(['Genshin Impact'])
+            return_list.append(['🎮 Genshin Impact'])
         elif eachGame['game_id'] == 6 :
-            return_list.append(['Honkai: StarRail'])
-        return_list[-1].append(str(eachGame['level']))
+            return_list.append(['🎮 Honkai: Star Rail'])
+        return_list[-1].append('⚔️ Lv.' + str(eachGame['level']) + '  ')
         for eachData in eachGame['data'] :
             if 'Active' in eachData['name'] :
-                return_list[-1].append(eachData['value'])
+                return_list[-1].append('🚪 ' + eachData['value'].rjust(4, padding) + ' days ')
+            elif 'Characters' in eachData['name'] :
+                return_list[-1].append('👪 ' + eachData['value'].rjust(3, padding) + ' chars ')
             elif 'Achievements' in eachData['name'] :
-                return_list[-1].append(eachData['value'])
+                return_list[-1].append('🏆 ' + eachData['value'].rjust(4, padding) + ' achievements')
 
-padding = ' '
 str_hoyo_data = ''
-
 for game in return_list :
-    str_hoyo_data += '🎮 ' + game[0] + '\n'
-    temp = '⚔️   Lv.' + game[1].rjust(2, padding) + \
-        '    🚪' + game[2].rjust(5, padding) + \
-        ' days  🏆' + game[3].rjust(5, padding) + \
-        ' achievements\n\n'
-    str_hoyo_data += temp
+    str_hoyo_data += game[0] + '\n' + game[1] + game[3] + game[2] + game[4] + '\n\n'
 
 print(str_hoyo_data)
