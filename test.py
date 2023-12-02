@@ -22,7 +22,7 @@ if requestData.status_code == 200 :
             return_list.append(['🎮 Genshin Impact'])
         elif eachGame['game_id'] == 6 :
             return_list.append(['🎮 Honkai: Star Rail'])
-        return_list[-1].append('⚔️ Lv.' + str(eachGame['level']) + '  ')
+        return_list[-1].append('⚔️ Lv.' + str(eachGame['level']) + '   ')
         for eachData in eachGame['data'] :
             if 'Active' in eachData['name'] :
                 return_list[-1].append('🕹️ ' + eachData['value'].rjust(4, padding) + ' days ')
