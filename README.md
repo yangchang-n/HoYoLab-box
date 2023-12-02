@@ -1,9 +1,9 @@
 # HoYoLab-box
 
 <div align = center>
-  <img src = 'https://github.com/yangchang-n/HoYoLab-box/assets/104478650/987c67de-7515-4b54-a94d-00a58efb491a' width = '400'>
+  <img src = 'https://github.com/yangchang-n/HoYoLab-box/assets/104478650/8b6ac2a1-0d93-4d0f-beb4-9bf843faef04' width = '400'>
   <h3 align = 'center'>HoYoLab-box</h3>
-  <p align = 'center'>🎮 Update your pinned gist to show your Genshin Impact / Honkai: StarRail play stats</p>
+  <p align = 'center'>🎮 Update your pinned gist to show your Genshin Impact / Honkai: Star Rail gameplay stats</p>
 </div>
 
 
