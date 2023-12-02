@@ -31,10 +31,10 @@ def get_data_from_hoyolab(hoyo_uid, hoyo_token) :
                 return_list.append(['🎮 Honkai: Star Rail'])
             return_list[-1].append('⚔️ Lv.' + str(eachGame['level']) + '  ')
             for eachData in eachGame['data'] :
-                if 'Active' in eachData['name'] :
-                    return_list[-1].append('🚪 ' + eachData['value'].rjust(4, padding) + ' days ')
-                elif 'Characters' in eachData['name'] :
+                if 'Characters' in eachData['name'] :
                     return_list[-1].append('👪 ' + eachData['value'].rjust(3, padding) + ' chars ')
+                elif 'Active' in eachData['name'] :
+                    return_list[-1].append('🚪 ' + eachData['value'].rjust(4, padding) + ' days ')
                 elif 'Achievements' in eachData['name'] :
                     return_list[-1].append('🏆 ' + eachData['value'].rjust(4, padding) + ' achievements')
         return return_list
