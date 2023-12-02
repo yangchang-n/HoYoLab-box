@@ -28,7 +28,7 @@ def get_data_from_hoyolab(hoyo_uid, hoyo_token) :
             if eachGame['game_id'] == 2 :
                 return_list.append(['🎮 Genshin Impact'])
             elif eachGame['game_id'] == 6 :
-                return_list.append(['🎮 Honkai: StarRail'])
+                return_list.append(['🎮 Honkai: Star Rail'])
             return_list[-1].append('⚔️ Lv.' + str(eachGame['level']) + '  ')
             for eachData in eachGame['data'] :
                 if 'Active' in eachData['name'] :
