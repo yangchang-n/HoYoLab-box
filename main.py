@@ -31,10 +31,10 @@ def get_data_from_hoyolab(hoyo_uid, hoyo_token) :
                 return_list.append(['🎮 Honkai: Star Rail'])
             return_list[-1].append('⚔️ Lv.' + str(eachGame['level']) + '  ')
             for eachData in eachGame['data'] :
-                if 'Characters' in eachData['name'] :
-                    return_list[-1].append('👪 ' + eachData['value'].rjust(3, padding) + ' chars ')
-                elif 'Active' in eachData['name'] :
+                if 'Active' in eachData['name'] :
                     return_list[-1].append('🚪 ' + eachData['value'].rjust(4, padding) + ' days ')
+                elif 'Characters' in eachData['name'] :
+                    return_list[-1].append('👪 ' + eachData['value'].rjust(3, padding) + ' chars ')
                 elif 'Achievements' in eachData['name'] :
                     return_list[-1].append('🏆 ' + eachData['value'].rjust(4, padding) + ' achievements')
         return return_list
@@ -44,7 +44,7 @@ def update_gist(gh_api_url, gh_token, gist_id, hoyo_data) :
 
     str_hoyo_data = ''
     for game in hoyo_data :
-        str_hoyo_data += game[0] + '\n' + game[1] + game[2] + game[3] + game[4] + '\n\n'
+        str_hoyo_data += game[0] + '\n' + game[1] + game[3] + game[2] + game[4] + '\n\n'
 
     data = {
         'description' : '🎮 HoYoverse gameplay stats',
