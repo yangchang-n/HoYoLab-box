@@ -13,8 +13,8 @@
 1. Create a new public GitHub Gist (https://gist.github.com/)
 2. Create a token with the `gist` scope and copy it (https://github.com/settings/tokens/new)
 3. Go to HoYoLab and login to your account
-4. Press F12 to open developer tools
-5. Find and copy 'ltoken' in Cookies
+4. Press **F12** to open developer tools
+5. Find and copy `ltoken` in Cookies
 
 ### Project Setup
 1. Fork this repo
@@ -23,8 +23,8 @@
 3. Go to the repo **Settings > Secrets**
 4. Add the following environment variables
 - **GH_TOKEN** : The GitHub token generated above
-- **HOYO_TOKEN** : Your personal HoYoLab API access token (copied 'ltoken')
-- **HOYO_UID** : Your HoYoverse/HoYoLab UID (not in-game UID, you can also check it from your HoYoLab profile page or 'ltuid' in Cookies)
+- **HOYO_TOKEN** : Your personal HoYoLab API access token (copied `ltoken`)
+- **HOYO_UID** : Your HoYoverse/HoYoLab UID (not in-game UID, you can also check it from your HoYoLab profile page or `ltuid` in Cookies)
 
 
 ## References
