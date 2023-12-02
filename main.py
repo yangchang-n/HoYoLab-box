@@ -44,9 +44,9 @@ def update_gist(gh_api_url, gh_token, gist_id, hoyo_data) :
 
     for game in hoyo_data :
         str_hoyo_data += '🎮 ' + game[0] + '\n'
-        temp = '⚔️  Lv.' + game[1].rjust(2, padding) + \
-            '       🚪' + game[2].rjust(5, padding) + \
-            ' days    🏆' + game[3].rjust(5, padding) + \
+        temp = '⚔️ Lv.' + game[1].rjust(2, padding) + \
+            '         🚪' + game[2].rjust(5, padding) + \
+            ' days     🏆' + game[3].rjust(5, padding) + \
             ' achievements\n\n'
         str_hoyo_data += temp
 
