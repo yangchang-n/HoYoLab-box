@@ -49,7 +49,6 @@ def update_gist(gh_api_url, gh_token, gist_id, hoyo_data) :
     padding = ' '
     for i in range(1, len(hoyo_data[0])) :
         len_for_padding = max(len(hoyo_data[0][i]), len(hoyo_data[1][i]))
-        print(len_for_padding)
         hoyo_data[0][i] = hoyo_data[0][i].rjust(len_for_padding, padding)
         hoyo_data[1][i] = hoyo_data[1][i].rjust(len_for_padding, padding)
 
