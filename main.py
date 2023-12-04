@@ -3,6 +3,11 @@ import os
 
 hoyo_uid = os.environ['HOYO_UID']
 hoyo_token = os.environ['HOYO_TOKEN']
+game_code = '26'
+
+# Game Code
+# 2 : Genshin Impact
+# 6 : Honkai: Star Rail
 
 gh_api_url = 'https://api.github.com'
 gh_token = os.environ['GH_TOKEN']
@@ -20,31 +25,42 @@ def get_data_from_hoyolab(hoyo_uid, hoyo_token) :
         headers=headers
     )
 
-    padding = ' '
     return_list = []
     if requestData.status_code == 200 :
         jsonData = requestData.json()
         for eachGame in jsonData['data']['list'] :
             if eachGame['game_id'] == 2 :
-                return_list.append(['🎮 Genshin Impact'])
+                return_list.append(['Genshin Impact'])
             elif eachGame['game_id'] == 6 :
-                return_list.append(['🎮 Honkai: Star Rail'])
-            return_list[-1].append('⚔️ Lv.' + str(eachGame['level']) + '     ')
+                return_list.append(['Honkai: Star Rail'])
+            return_list[-1].append(str(eachGame['level']))
             for eachData in eachGame['data'] :
                 if 'Active' in eachData['name'] :
-                    return_list[-1].append('🕹️ ' + eachData['value'].rjust(4, padding) + ' days ')
+                    return_list[-1].append(eachData['value'])
                 elif 'Characters' in eachData['name'] :
-                    return_list[-1].append('🤝 ' + eachData['value'].rjust(2, padding) + ' chars  ')
+                    return_list[-1].append(eachData['value'])
                 elif 'Achievements' in eachData['name'] :
-                    return_list[-1].append('🏆 ' + eachData['value'].rjust(4, padding) + ' achvmnts')
+                    return_list[-1].append(eachData['value'])
         return return_list
     else : return 'Error occured'
 
 def update_gist(gh_api_url, gh_token, gist_id, hoyo_data) :
 
+    padding = ' '
+    for i in range(1, len(hoyo_data[0])) :
+        len_for_padding = max(len(hoyo_data[0][i]), len(hoyo_data[1][i]))
+        print(len_for_padding)
+        hoyo_data[0][i] = hoyo_data[0][i].rjust(len_for_padding, padding)
+        hoyo_data[1][i] = hoyo_data[1][i].rjust(len_for_padding, padding)
+
     str_hoyo_data = ''
     for game in hoyo_data :
-        str_hoyo_data += game[0] + '\n' + game[1] + game[3] + game[2] + game[4] + '\n\n'
+        str_hoyo_data += '🎮 ' + game[0] + '\n'\
+            + ('⚔️ Lv.' + game[1]).ljust(12, padding)\
+            + ('🤝 ' + game[3] + ' chars').ljust(12, padding)\
+            + ('🕹️ ' + game[2] + ' days').ljust(12, padding)\
+            + ('🏆 ' + game[4] + ' achvmnts').ljust(12, padding)\
+            + '\n\n'
 
     data = {
         'description' : '🎮 HoYoverse gameplay stats',
