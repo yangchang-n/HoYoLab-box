@@ -6,12 +6,26 @@ hoyo_token = os.environ['HOYO_TOKEN']
 game_code = '26'
 
 # Game Code
+# 1 : Honkai Impact 3rd
 # 2 : Genshin Impact
 # 6 : Honkai: Star Rail
 
 gh_api_url = 'https://api.github.com'
 gh_token = os.environ['GH_TOKEN']
 gist_id = os.environ['GIST_ID']
+
+def get_only_data_needed(userInfoInGame, list_to_return) :
+    
+    list_to_return[-1].append(str(userInfoInGame['level']))
+    for eachData in userInfoInGame['data'] :
+        if 'Active' in eachData['name'] :
+            list_to_return[-1].append(eachData['value'])
+        elif 'Characters' in eachData['name'] :
+            list_to_return[-1].append(eachData['value'])
+        elif 'Achievements' in eachData['name'] :
+            list_to_return[-1].append(eachData['value'])
+            
+    return list_to_return
 
 def get_data_from_hoyolab(hoyo_uid, hoyo_token) :
 
@@ -31,16 +45,10 @@ def get_data_from_hoyolab(hoyo_uid, hoyo_token) :
         for eachGame in jsonData['data']['list'] :
             if eachGame['game_id'] == 2 :
                 return_list.append(['Genshin Impact'])
+                return_list = get_only_data_needed(eachGame, return_list)
             elif eachGame['game_id'] == 6 :
                 return_list.append(['Honkai: Star Rail'])
-            return_list[-1].append(str(eachGame['level']))
-            for eachData in eachGame['data'] :
-                if 'Active' in eachData['name'] :
-                    return_list[-1].append(eachData['value'])
-                elif 'Characters' in eachData['name'] :
-                    return_list[-1].append(eachData['value'])
-                elif 'Achievements' in eachData['name'] :
-                    return_list[-1].append(eachData['value'])
+                return_list = get_only_data_needed(eachGame, return_list)
         return return_list
     else : return 'Error occured'
 
