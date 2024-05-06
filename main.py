@@ -28,7 +28,7 @@ def get_only_data_needed(userInfoInGame, list_to_return) :
             
     return list_to_return
 
-def get_data_from_hoyolab(hoyo_uid, hoyo_token) :
+def get_data_from_hoyolab(hoyo_uid, hoyo_token, hoyo_tmid) :
 
     headers = {
         'x-rpc-language': 'en-us',
@@ -91,5 +91,5 @@ def update_gist(gh_api_url, gh_token, gist_id, hoyo_data) :
         return 'Error retrieving data'
 
 if __name__ == '__main__' :
-    hoyo_data = get_data_from_hoyolab(hoyo_uid, hoyo_token)
+    hoyo_data = get_data_from_hoyolab(hoyo_uid, hoyo_token, hoyo_tmid)
     update_gist(gh_api_url, gh_token, gist_id, hoyo_data)
