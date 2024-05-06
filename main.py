@@ -3,6 +3,7 @@ import os
 
 hoyo_uid = os.environ['HOYO_UID']
 hoyo_token = os.environ['HOYO_TOKEN']
+hoyo_tmid = os.environ['HOYO_TMID']
 game_code = '26'
 
 # Game Code
@@ -31,7 +32,7 @@ def get_data_from_hoyolab(hoyo_uid, hoyo_token) :
 
     headers = {
         'x-rpc-language': 'en-us',
-        'Cookie': f'ltuid={hoyo_uid}; ltoken={hoyo_token};'
+        'Cookie': f'ltoken_v2={hoyo_token}; ltmid_v2={hoyo_tmid};'
     }
 
     requestData = requests.get(
