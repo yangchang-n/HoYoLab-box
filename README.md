@@ -23,9 +23,7 @@
 3. Go to the repo **Settings > Secrets**
 4. Add the following environment variables
 - **GH_TOKEN** : The GitHub token generated above
-- ~~**HOYO_UID** : Your HoYoverse/HoYoLab UID~~
-
-  v1.0.2 - Now you don't need **HOYO_UID**, since it was replaced by **HOYO_TMID** below
+- **HOYO_UID** : Your HoYoverse/HoYoLab UID
 - **HOYO_TOKEN** : Your personal HoYoLab API access token (copied `ltoken_v2`)
 - **HOYO_TMID** : Another key value to access API (copied `ltmid_v2`)
 
