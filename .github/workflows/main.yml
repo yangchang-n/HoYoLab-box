@@ -2,22 +2,32 @@ name: Update gist
 on:
   schedule:
     - cron: "0 * * * *"
+  workflow_dispatch:
 
 jobs:
   update-gist:
     runs-on: ubuntu-latest
+    environment: Main
     steps:
-      - name: "Checkout"
+      - name: Checkout
         uses: actions/checkout@main
 
-      - name: "Pip install"
-        run: pip install -r requirements.txt
+      - name: Set up Python
+        uses: actions/setup-python@main
+        with:
+          python-version: '3.9'
 
-      - name: "Update gist"
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Update gist
         env:
           HOYO_UID: ${{ secrets.HOYO_UID }}
           HOYO_TOKEN: ${{ secrets.HOYO_TOKEN }}
           HOYO_TMID: ${{ secrets.HOYO_TMID }}
+          GAME_CODE: ${{ secrets.GAME_CODE }}
+          GIST_ID: ${{ secrets.GIST_ID }}
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          GIST_ID: 9a79919834da31aac651c6a00bffa874
         run: python main.py
