@@ -1,7 +1,7 @@
 # HoYoLab-box
 
 <div align = center>
-  <img src = 'https://github.com/user-attachments/assets/399d75e0-c518-4af9-be40-cd18314b65ce' width = '400'>
+  <img src = 'https://github.com/user-attachments/assets/5b3bb567-5db2-4d57-95a4-d8caabf3687f' width = '400'>
   <h3 align = 'center'>HoYoLab-box</h3>
   <p align = 'center'>🎮 Update your pinned gist to show your HoYoverse gameplay stats</p>
 </div>
