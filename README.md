@@ -1,9 +1,9 @@
 # HoYoLab-box
 
 <div align = center>
-  <img src = 'https://github.com/yangchang-n/HoYoLab-box/assets/104478650/7610fb51-fa68-4822-8bb0-d8dee0845f4f' width = '400'>
+  <img src = 'https://github.com/user-attachments/assets/072b2aec-bd6a-4ba6-8321-da7de8cfcba8' width = '400'>
   <h3 align = 'center'>HoYoLab-box</h3>
-  <p align = 'center'>🎮 Update your pinned gist to show your Genshin Impact / Honkai: Star Rail gameplay stats</p>
+  <p align = 'center'>🎮 Update your pinned gist to show your HoYoverse gameplay stats</p>
 </div>
 
 
@@ -12,20 +12,25 @@
 ### Prep Work
 1. Create a new public GitHub Gist (https://gist.github.com/)
 2. Create a token with the `gist` scope and copy it (https://github.com/settings/tokens/new)
-3. Go to HoYoLab and login to your account
+3. Go to HoYoLab and login to your account (Make sure the stats are shown in your HoYoLab profile page!)
 4. Press **F12** to open developer tools
 5. Find and copy `ltoken_v2` and `ltmid_v2` in Cookies
 
 ### Project Setup
 1. Fork this repo
-2. Edit the environment variable in `.github/workflows/main.yml`
+2. Go to the repo **Settings > Secrets and variables > Actions**
+3. Add the following environment variables at **Repository secrets**
 - **GIST_ID** : The ID portion from your gist url
-3. Go to the repo **Settings > Secrets**
-4. Add the following environment variables
 - **GH_TOKEN** : The GitHub token generated above
 - **HOYO_UID** : Your HoYoverse/HoYoLab UID
 - **HOYO_TOKEN** : Your personal HoYoLab API access token (copied `ltoken_v2`)
 - **HOYO_TMID** : Another key value to access API (copied `ltmid_v2`)
+- **GAME_CODE** : One or two-digit number in the order in which you want to display (ex. `26` for the above image)
+
+  - 1 : Honkai Impact 3rd
+  - 2 : Genshin Impact
+  - 6 : Honkai: Star Rail
+  - 8 : Zenless Zone Zero
 
 
 ## References
