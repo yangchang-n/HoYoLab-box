@@ -6,7 +6,6 @@ on:
 jobs:
   update-gist:
     runs-on: ubuntu-latest
-    environment: Main
     steps:
       - name: Checkout
         uses: actions/checkout@main
