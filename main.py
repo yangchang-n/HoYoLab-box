@@ -55,39 +55,39 @@ def list_for_format(hoyo_data, game_code) :
                 return "N/A"
 
             if game_id == 1 :  # Honkai Impact 3rd
-                list_hoyo_data.append(["🎮 {:<25}".format(game_name),\
-                                    "⚔️ Level        : {:>4}      ".format(level),\
-                                    "🛡️ Battlesuits  : {:>4}      ".format(get_stat(['Battlesuits', 'Battlesuit Count', '装甲数'])),\
-                                    "👗 Outfits      : {:>4}      ".format(get_stat(['Outfits', 'Outfit Count', '服装数'])),\
-                                    "🕹️ Active Days  : {:>4}      ".format(get_stat(['Total Check-ins', 'Cumulative Check-in Days', '累计登舰']))])
+                list_hoyo_data.append(["🎮 {:<27}".format(game_name),\
+                                    "⚔️ Level        : {:>5}       ".format(level),\
+                                    "🛡️ Battlesuits  : {:>5}       ".format(get_stat(['Battlesuits', 'Battlesuit Count', '装甲数'])),\
+                                    "👗 Outfits      : {:>5}       ".format(get_stat(['Outfits', 'Outfit Count', '服装数'])),\
+                                    "🕹️ Active Days  : {:>5}       ".format(get_stat(['Total Check-ins', 'Cumulative Check-in Days', '累计登舰']))])
 
             elif game_id == 2 :  # Genshin Impact
-                list_hoyo_data.append(["🎮 {:<25}".format(game_name),\
-                                    "⚔️ Level        : {:>4}      ".format(level),\
-                                    "🤝 Characters   : {:>4}      ".format(get_stat(['Characters', 'Characters Obtained', '获得角色数'])),\
-                                    "🏆 Achievements : {:>4}      ".format(get_stat(['Achievements', 'Achievements Unlocked', '成就达成数'])),\
-                                    "🕹️ Active Days  : {:>4}      ".format(get_stat(['Active Days', 'Days Active', '活跃天数']))])
+                list_hoyo_data.append(["🎮 {:<27}".format(game_name),\
+                                    "⚔️ Level        : {:>5}       ".format(level),\
+                                    "🤝 Characters   : {:>5}       ".format(get_stat(['Characters', 'Characters Obtained', '获得角色数'])),\
+                                    "🏆 Achievements : {:>5}       ".format(get_stat(['Achievements', 'Achievements Unlocked', '成就达成数'])),\
+                                    "🕹️ Active Days  : {:>5}       ".format(get_stat(['Active Days', 'Days Active', '活跃天数']))])
 
             elif game_id == 6 :  # Honkai: Star Rail
-                list_hoyo_data.append(["🎮 {:<25}".format(game_name),\
-                                    "⚔️ Level        : {:>4}      ".format(level),\
-                                    "🤝 Characters   : {:>4}      ".format(get_stat(['Characters Unlocked', 'Characters', 'Characters Obtained', '已解锁角色'])),\
-                                    "🏆 Achievements : {:>4}      ".format(get_stat(['Achievements Unlocked', 'Achievements', 'Achievement Count', '达成成就数'])),\
-                                    "🕹️ Active Days  : {:>4}      ".format(get_stat(['Time Active', 'Active Days', 'Days Active', '活跃天数']))])
+                list_hoyo_data.append(["🎮 {:<27}".format(game_name),\
+                                    "⚔️ Level        : {:>5}       ".format(level),\
+                                    "🤝 Characters   : {:>5}       ".format(get_stat(['Characters Unlocked', 'Characters', 'Characters Obtained', '已解锁角色'])),\
+                                    "🏆 Achievements : {:>5}       ".format(get_stat(['Achievements Unlocked', 'Achievements', 'Achievement Count', '达成成就数'])),\
+                                    "🕹️ Active Days  : {:>5}       ".format(get_stat(['Time Active', 'Active Days', 'Days Active', '活跃天数']))])
 
             elif game_id == 8 :  # Zenless Zone Zero
-                list_hoyo_data.append(["🎮 {:<25}".format(game_name),\
-                                    "⚔️ Level        : {:>4}      ".format(level),\
-                                    "🤝 Agents       : {:>4}      ".format(get_stat(['Agents Recruited', 'Characters', '已解锁角色'])),\
-                                    "🏆 Achievements : {:>4}      ".format(get_stat(['No. of Achievements Earned', 'Achievements', '达成成就数'])),\
-                                    "🕹️ Active Days  : {:>4}      ".format(get_stat(['Days Active', 'Active Days', '活跃天数']))])
+                list_hoyo_data.append(["🎮 {:<27}".format(game_name),\
+                                    "⚔️ Level        : {:>5}       ".format(level),\
+                                    "🤝 Agents       : {:>5}       ".format(get_stat(['Agents Recruited', 'Characters', '已解锁角色'])),\
+                                    "🏆 Achievements : {:>5}       ".format(get_stat(['No. of Achievements Earned', 'Achievements', '达成成就数'])),\
+                                    "🕹️ Active Days  : {:>5}       ".format(get_stat(['Days Active', 'Active Days', '活跃天数']))])
 
             else :  # Generic format for unknown games
-                list_hoyo_data.append(["🎮 {:<25}".format(game_name),\
-                                    "⚔️ Level        : {:>4}      ".format(level),\
-                                    "🤝 Characters   : {:>4}      ".format(' '),\
-                                    "🏆 Achievements : {:>4}      ".format(' '),\
-                                    "🕹️ Active Days  : {:>4}      ".format(' ')])
+                list_hoyo_data.append(["🎮 {:<27}".format(game_name),\
+                                    "⚔️ Level        : {:>5}       ".format(level),\
+                                    "🤝 Characters   : {:>5}       ".format(' '),\
+                                    "🏆 Achievements : {:>5}       ".format(' '),\
+                                    "🕹️ Active Days  : {:>5}       ".format(' ')])
                 
     return list_hoyo_data
         
