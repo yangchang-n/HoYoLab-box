@@ -101,21 +101,7 @@ def format_for_two_games(list_hoyo_data) :
         str_hoyo_data += list_hoyo_data[0][line] + list_hoyo_data[1][line] + "\n"
     return str_hoyo_data
 
-def update_gist(hoyo_data, game_code, gist_id, gh_token) :
-
-    if not hoyo_data :
-        print("Error: No data to update gist")
-        return
-    
-    list_hoyo_data = list_for_format(hoyo_data, game_code)
-
-    if len(game_code) == 1 :
-        str_hoyo_data = format_for_one_game(list_hoyo_data)
-    elif len(game_code) == 2 :
-        str_hoyo_data = format_for_two_games(list_hoyo_data)
-    else :
-        print("Error: Unexpected game code length")
-        return
+def update_gist(str_hoyo_data, gist_id, gh_token) :
 
     url = f'https://api.github.com/gists/{gist_id}'
 
@@ -138,7 +124,20 @@ def update_gist(hoyo_data, game_code, gist_id, gh_token) :
 
 if __name__ == '__main__' :
     hoyo_data = get_data_from_hoyolab(hoyo_uid, hoyo_token, hoyo_tmid)
+	
     if hoyo_data :
-        update_gist(hoyo_data, game_code, gist_id, gh_token)
+		list_hoyo_data = list_for_format(hoyo_data, game_code)
+		
+	    if len(game_code) == 1 :
+	        str_hoyo_data = format_for_one_game(list_hoyo_data)
+			update_gist(str_hoyo_data, gist_id, gh_token)
+
+	    elif len(game_code) == 2 :
+	        str_hoyo_data = format_for_two_games(list_hoyo_data)
+			update_gist(str_hoyo_data, gist_id, gh_token)
+
+	    else :
+	        print("Error: Unexpected game code length")
+
     else :
         print("Failed to retrieve data from HoYoLab")
