@@ -122,6 +122,8 @@ def update_gist(str_hoyo_data, gist_id, gh_token) :
     except requests.exceptions.RequestException as e :
         print(f"Error updating gist: {e}")
 
+#################### Main ####################
+
 if __name__ == '__main__' :
     hoyo_data = get_data_from_hoyolab(hoyo_uid, hoyo_token, hoyo_tmid)
 	
