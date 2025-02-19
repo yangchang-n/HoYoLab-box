@@ -126,18 +126,18 @@ if __name__ == '__main__' :
     hoyo_data = get_data_from_hoyolab(hoyo_uid, hoyo_token, hoyo_tmid)
 	
     if hoyo_data :
-		list_hoyo_data = list_for_format(hoyo_data, game_code)
-		
-	    if len(game_code) == 1 :
-	        str_hoyo_data = format_for_one_game(list_hoyo_data)
-			update_gist(str_hoyo_data, gist_id, gh_token)
+        list_hoyo_data = list_for_format(hoyo_data, game_code)
 
-	    elif len(game_code) == 2 :
-	        str_hoyo_data = format_for_two_games(list_hoyo_data)
-			update_gist(str_hoyo_data, gist_id, gh_token)
+        if len(game_code) == 1 :
+            str_hoyo_data = format_for_one_game(list_hoyo_data)
+            update_gist(str_hoyo_data, gist_id, gh_token)
 
-	    else :
-	        print("Error: Unexpected game code length")
+        elif len(game_code) == 2 :
+            str_hoyo_data = format_for_two_games(list_hoyo_data)
+            update_gist(str_hoyo_data, gist_id, gh_token)
+
+        else :
+            print("Error: Unexpected game code length")
 
     else :
         print("Failed to retrieve data from HoYoLab")
